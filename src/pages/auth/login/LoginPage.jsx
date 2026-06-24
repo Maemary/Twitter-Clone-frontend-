@@ -38,14 +38,12 @@ const LoginPage = () => {
 				if (!res.ok) {
 					throw new Error(data.error || "Something went wrong");
 				}
-				  return data;
 			} catch (error) {
 				throw new Error(error);
 			}
 		},
 		onSuccess: () => {
 			// refetch the authUser
-			localStorage.setItem("token", data.token); // ← save token
 			queryClient.invalidateQueries({ queryKey: ["authUser"] });
 		},
 	});
