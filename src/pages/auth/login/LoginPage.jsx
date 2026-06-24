@@ -45,6 +45,7 @@ const LoginPage = () => {
 		},
 		onSuccess: () => {
 			// refetch the authUser
+			localStorage.setItem("token", data.token); // ← save token
 			queryClient.invalidateQueries({ queryKey: ["authUser"] });
 		},
 	});
